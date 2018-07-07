@@ -232,30 +232,15 @@ var beepbox;
     }());
     Config.aSettingsNames = ["Basic", "Advanced"];
 	aListHidden = ["hidden", "visible"]
-	Config.scaleNames = ["easy :)", "easy :(", "island :)", "island :(", "blues :)", "blues :(", "normal :)", "normal :(", "dbl harmonic :)", "dbl harmonic :(", "enigma", "expert", "base note", "beep bishop", "challenge", "enigma+"];
+	Config.scaleNames = ["Missionary"];
     Config.scaleFlags = [
         [true, false, true, false, true, false, false, true, false, true, false, false],
-        [true, false, false, true, false, true, false, true, false, false, true, false],
-        [true, false, false, false, true, true, false, true, false, false, false, true],
-        [true, true, false, true, false, false, false, true, true, false, false, false],
-        [true, false, true, true, true, false, false, true, false, true, false, false],
-        [true, false, false, true, false, true, true, true, false, false, true, false],
-        [true, false, true, false, true, true, false, true, false, true, false, true],
-        [true, false, true, true, false, true, false, true, true, false, true, false],
-        [true, true, false, false, true, true, false, true, true, false, false, true],
-        [true, false, true, true, false, false, true, true, true, false, false, true],
-        [true, false, true, false, true, false, true, false, true, false, true, false],
-        [true, true, true, true, true, true, true, true, true, true, true, true],
-		[true, false, false, false, false, false, false, false, false, false, false, false],
-		[true, true, false, true, true, true, true, true, true, false, true, false],
-		[false, true, true, true, true, true, true, true, true, true, true, true],
-		[true, true, false, true, true, false, true, true, false, true, true, false],
     ];
     Config.pianoScaleFlags = [true, false, true, false, true, true, false, true, false, true, false, true];
     Config.blackKeyNameParents = [-1, 1, -1, 1, -1, 1, -1, -1, 1, -1, 1, -1];
     Config.pitchNames = ["C", null, "D", null, "E", "F", null, "G", null, "A", null, "B"];
 	
-	Config.themeNames = ["Default", "ModBox 2.0", "Artic", "Cinnamon Roll [!]", "Ocean", "Rainbow [!]", "Float [!]", "Windows", "Grassland", "Dessert", "Kahootiest", "Beam to the Bit [!]", "Pretty Egg", "Poniryoshka", "Gameboy [!]", "Woodkid", "Midnight", "Snedbox"];
+	Config.themeNames = ["Normal", "Lewd Mode Stage 1", "Lewd Mode Stage 2", "Lewd Mode Stage 3 (Sex Stage)"];
 	
 	volumeColorPallet =            ["#777777", "#c4ffa3", "#42dcff", "#ba8418", "#090b3a", "#ff00cb", "#878787", "#15a0db", "#74bc21", "#ff0000", "#66bf39", "#fefe00", "#f01d7a", "#ffc100", "#8bac0f", "#ef3027", "#aa5599", "#a53a3d", "#ffffff"]
 	sliderOneColorPallet =         ["#9900cc", "#00ff00", "#ffffff", "#ba8418", "#5982ff", "#ff0000", "#ffffff", "#2779c2", "#a0d168", "#ff6254", "#ff3355", "#fefe00", "#6b003a", "#4b4b4b", "#9bbc0f", "#e83c4e", "#445566", "#a53a3d", "#ffffff"]
@@ -4462,7 +4447,7 @@ var beepbox;
             }
             else {
                 throw new Error("ChangeRhythm couldn't handle rhythm change from " + oldPartsPerBeat + " to " + newPartsPerBeat + ".");
-            }
+            }"scale"
             var i = 0;
             while (i < bar.notes.length) {
                 var note = bar.notes[i];
@@ -4510,7 +4495,7 @@ var beepbox;
 	
 	var ChangeASettings = (function (_super) {
         __extends(ChangeASettings, _super);
-        function ChangeASettings(document, newValue) {
+        function ChangeASettings(document, newValue) {"scale"
             var _this = _super.call(this) || this;
             if (document.song.aSettings != newValue) {
                 document.song.aSettings = newValue;
@@ -5391,7 +5376,7 @@ var beepbox;
                 _this._updatePreview();
                 if (_this._mouseY >= _this._barBottom - _this._barHeight && _this._mouseY <= _this._barBottom) {
                     _this._dragging = true;
-                    _this._dragStart = _this._mouseY;
+                    _this._dragStart = _this._mouseY;"scale"
                 }
             };
             this._whenMouseMoved = function (event) {
@@ -6747,11 +6732,11 @@ var beepbox;
                         div({ className: "selectContainer" }, [this._aSettingsDropDown]),
                     ]),
 					div({ className: "selectRow" }, [
-                        span({}, [text("Theme: ")]),
+                        span({}, [text("Mode: ")]),
                         div({ className: "selectContainer" }, [this._themeDropDown]),
                     ]),
 					div({ className: "selectRow" }, [
-                        span({}, [text("Scale: ")]),
+                        span({}, [text("Position: ")]),
                         div({ className: "selectContainer" }, [this._scaleDropDown]),
                     ]),
                     div({ className: "selectRow" }, [
